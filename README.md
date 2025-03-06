@@ -16,10 +16,30 @@ After going through Sage 2.2.1's performance, several torsions have been identif
 
 Using smee as the force field fitting and evaluation backend and BeSmarts to generate potential clusters or splits ("split/merge") and torsion functional forms ("modify"). Data would comprise optimization *and* torsiondrive data.
 
-## Data
+Output product: a SMIRNOFF force field (MVP) that (nice-to-haves):
+* ideally reproduces the torsion drive profiles highlighted in the problem cases better
+* ideally with torsions having been split/modified/merged in some way
+* ideally is able to easily label which torsions have changed, and (if there's a clear inheritance) their parent parameter
+
+MVP: for a smaller toy example, focusing on one particular torsion (e.g. t17 or t48a) might be easier.
+
+### Data
 
 Data is curated from both existing training data (specifically the Sage 2.2.1 set) as well as the additional molecules suggested by Cresset.
 
+Datasets of interest:
+* original-optimizations: singlepoints from unrestrained optimizations from Sage 2.2.1 fit
+* original-torsiondrives: singlepoints from restrained optimizations from Sage 2.2.1 fit
+* additional-optimizations: singlepoints from additional unrestrained optimizations of molecules suggested by Cresset
+* additional-torsiondrives: singlepoints from additional restrained optimizations from torsiondrive scans suggested by Cresset
+* combined-optimizations: combined original-optimizations and additional-optimizations
+* combined-torsiondrives: combined original-torsiondrives and additional-torsiondrives
+
+Ideally this experiment would use the `combined-` datasets, but it may be cleaner and a smaller toy example to start from the `additional-` datasets.
+
+### Fitting
+
+We expect to use the functionality and data types in descent and smee respectively to do the force field fit.
 
 ## Some notes on parameters
 
