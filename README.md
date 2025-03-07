@@ -12,16 +12,19 @@ After going through Sage 2.2.1's performance, several torsions have been identif
 * t18 performs poorly for amide-adjacent torsions
 * t105 covers an O linker with an sp2 or sp3 terminus. While the sp3 profiles match the QM well, the sp2 profiles look too stiff
 
+More detail can be found in the [slides and recording here](https://openforcefield.atlassian.net/wiki/spaces/MEET/pages/3371794433/2025-01-29+FF+fitting+meeting).
+
 ## Objective
 
-Using smee as the force field fitting and evaluation backend and BeSmarts to generate potential clusters or splits ("split/merge") and torsion functional forms ("modify"). Data would comprise optimization *and* torsiondrive data.
+Using smee as the force field fitting and evaluation backend and BeSmarts to generate potential clusters or splits ("split/merge") and torsion functional forms ("modify").
 
 Output product: a SMIRNOFF force field (MVP) that (nice-to-haves):
 * ideally reproduces the torsion drive profiles highlighted in the problem cases better
 * ideally with torsions having been split/modified/merged in some way
 * ideally is able to easily label which torsions have changed, and (if there's a clear inheritance) their parent parameter
+* ideally is fit to optimization *and* torsiondrive data
 
-MVP: for a smaller toy example, focusing on one particular torsion (e.g. t17 or t48a) might be easier.
+MVP: for a smaller toy example, focusing on one particular torsion (e.g. t17 or t48a) might be easier. It may also be easier to focus on optimizations instead of torsiondrives, as the machinery in smee/descent needs no modification.
 
 ### Data
 
