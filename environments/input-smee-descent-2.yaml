@@ -1,0 +1,27 @@
+name: smee-descent-2
+channels:
+  - conda-forge
+
+dependencies:
+  - python >=3.10
+  - pip
+
+  - smee    >=0.8.0
+  - descent >=0.4.0
+  - numpy   <1.24
+
+  - click
+
+  # Data
+  - openff-qcsubmit
+  - qcfractal >=0.56
+
+  # Parameterization
+  - openff-toolkit
+  - openff-interchange
+  - rdkit
+  - ambertools
+
+  # Training
+  - tensorboard
+  - tensorboardX
